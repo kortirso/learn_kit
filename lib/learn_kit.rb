@@ -1,4 +1,5 @@
 require_relative 'learn_kit/version'
+require_relative 'learn_kit/naive_bayes/gaussian'
 
 # main module
 module LearnKit
