@@ -5,8 +5,6 @@ module LearnKit
     class Gaussian
       # Fit test data
       module Fit
-        # input data
-        # { label1: [[f1, f2, f3], [f1, f2, f3]], label2: [[f4, f5, f6], [f4, f5, f6]] }
         # output data
         # { label1: [{fs_std1: 1, fs_mean1: 2, fs_var1: 3}, {..}, {..}], label2: [{fs_std1: 1, fs_mean1: 2, fs_var1: 3}, {..}, {..}] }
         def fit

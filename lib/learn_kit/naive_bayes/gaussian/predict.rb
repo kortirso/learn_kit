@@ -50,8 +50,8 @@ module LearnKit
           # deal with the edge case of a 0 standard deviation
           return fit_result[:fs_mean] == value ? 1.0 : 0.0 if fit_result[:fs_std].zero?
           # calculate the gaussian probability
-          exp = - ((value - fit_result[:fs_mean]) ** 2) / (2 * fit_result[:fs_var])
-          (1.0 / (Math.sqrt(2 * Math::PI * fit_result[:fs_var]))) * (Math::E ** exp)
+          exp = - ((value - fit_result[:fs_mean])**2) / (2 * fit_result[:fs_var])
+          (1.0 / Math.sqrt(2 * Math::PI * fit_result[:fs_var])) * (Math::E**exp)
         end
       end
     end

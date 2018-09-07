@@ -17,6 +17,27 @@ Or install it yourself as:
 
     $ gem install learn_kit
 
+### K-Nearest Neighbors
+
+#### Simple
+
+Initialize classificator with data set consists from labels and features:
+
+```ruby
+  data_set = { label1: [[-1, -1], [-2, -1], [-3, -2]], label2: [[1, 1], [2, 1], [3, 2], [-2, -2]] }
+  clf = LearnKit::Knn.new(data_set: data_set)
+```
+
+Predict label for new feature:
+
+```ruby
+  clf.predict(k: 3, algorithm: 'brute', weight: 'uniform', point: [-1, -2])
+```
+    k - number of nearest neighbors
+    algorithm - algorithm for calculation of distances, one of the [brute]
+    weight - method of weighted neighbors, one of the [uniform]
+    point - new feature for prediction
+
 ### Naive Bayes
 
 #### Gaussian
