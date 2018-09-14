@@ -3,6 +3,8 @@ require_relative 'knn/predict'
 module LearnKit
   # K-Nearest Neighbors algorithm
   class Knn
+    class LearnFailure < StandardError; end
+
     include LearnKit::Knn::Predict
 
     attr_reader :data_set, :points

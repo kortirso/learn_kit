@@ -11,6 +11,8 @@ module LearnKit
       def predict(args = {})
         calc_distances(args) if points.size.zero?
         prediction(sort_points(args))
+      rescue LearnFailure => ex
+        puts "LearnFailure: #{ex.message}"
       end
 
       private
@@ -27,6 +29,7 @@ module LearnKit
       def brute_algorithm(args)
         data_set.keys.each do |key|
           data_set[key].each do |value|
+            raise LearnFailure, "Different points size, error key - #{key}, error value - #{value}" if args[:point].size != value.size
             points << { distance: calc_distance(args[:point], value), label: key }
           end
         end
