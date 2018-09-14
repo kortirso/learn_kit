@@ -19,8 +19,6 @@ Or install it yourself as:
 
 ### K-Nearest Neighbors
 
-#### Simple
-
 Initialize classificator with data set consists from labels and features:
 
 ```ruby
@@ -35,7 +33,7 @@ Predict label for new feature:
 ```
     k - number of nearest neighbors
     algorithm - algorithm for calculation of distances, one of the [brute]
-    weight - method of weighted neighbors, one of the [uniform]
+    weight - method of weighted neighbors, one of the [uniform|distance]
     point - new feature for prediction
 
 ### Naive Bayes

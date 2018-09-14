@@ -7,9 +7,9 @@ module LearnKit
       # input data
       # { k: 3, algorithm: 'brute', weight: 'uniform', point: [1, 2, 3] }
       # algorithms: brute
-      # weights: uniform
+      # weights: uniform, distance
       def predict(args = {})
-        calc_distances(args)
+        calc_distances(args) if points.size.zero?
         prediction(sort_points(args))
       end
 
@@ -38,7 +38,7 @@ module LearnKit
           .sort_by { |point| point[:distance] }
           .first(args[:k])
           .map do |point|
-            point[:weight] = UNIFORM_WEIGHT
+            point[:weight] = calc_point_weight(args[:weight], point[:distance])
             point
           end
       end
@@ -61,6 +61,15 @@ module LearnKit
           end
         end
         result.sort_by { |_k, v| v }.reverse[0][0]
+      end
+
+      # calc point weight based on selected type
+      def calc_point_weight(weight, distance)
+        case weight
+          when 'uniform' then UNIFORM_WEIGHT
+          when 'distance' then 1 / distance**2
+          else UNIFORM_WEIGHT
+        end
       end
     end
   end
